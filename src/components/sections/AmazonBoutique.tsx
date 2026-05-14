@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 
-export function AmazonBoutique({ product }) {
+export function AmazonBoutique({ product }: { product: any }) {
   return (
     <div>
       <Link href="/boutique">
