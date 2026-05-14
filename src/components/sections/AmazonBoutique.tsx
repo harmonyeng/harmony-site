@@ -8,11 +8,7 @@ export function AmazonBoutique({ product }) {
         Amazon My Love
       </Link>
       {product ? (
-        
-          href={product.amazonUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={product.amazonUrl} target="_blank" rel="noopener noreferrer">
           <span>📋</span>
           <div>
             <div>{product.name}</div>
