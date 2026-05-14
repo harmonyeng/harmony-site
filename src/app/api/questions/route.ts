@@ -12,18 +12,14 @@ const writeClient = createClient({
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession()
-
   if (!session?.user?.email) {
     return NextResponse.json({ error: 'Authentication required.' }, { status: 401 })
   }
-
   const body = await req.json()
   const questionText: string = body?.body?.trim()
-
   if (!questionText || questionText.length < 10) {
     return NextResponse.json({ error: 'Question is too short.' }, { status: 400 })
   }
-
   try {
     await writeClient.create({
       _type: 'question',
