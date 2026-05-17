@@ -9,7 +9,6 @@ export function Navbar() {
   const { data: session } = useSession()
 
   const isAdmin = (session?.user as any)?.role === 'admin'
-  const firstName = session?.user?.name?.split(' ')[0] ?? ''
 
   return (
     <>
@@ -26,13 +25,13 @@ export function Navbar() {
         {session ? (
           <div className="flex items-center gap-4">
             <span className="font-mono text-[10px] tracking-[0.2em] text-gold uppercase">
-              {isAdmin ? `⚙ המפקדה פתוחה, ליטל` : `ברוכה הבאה ✦`}
+              {isAdmin ? `⚙ Command Center is live, Lital` : `Welcome back ✦`}
             </span>
             <button
               className="font-mono text-[9px] tracking-[0.15em] text-white/30 uppercase hover:text-white/70 transition-colors cursor-pointer"
               onClick={() => signOut({ redirect: false })}
             >
-              יציאה
+              Sign out
             </button>
           </div>
         ) : (
