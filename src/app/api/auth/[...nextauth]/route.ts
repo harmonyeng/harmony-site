@@ -13,7 +13,15 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
-        const isAdmin = credentials.email === process.env.ADMIN_EMAIL;
+
+        const isAdmin =
+          credentials.email === process.env.ADMIN_EMAIL &&
+          credentials.password === process.env.ADMIN_PASSWORD;
+
+        const isUser = credentials.email !== process.env.ADMIN_EMAIL;
+
+        if (!isAdmin && !isUser) return null;
+
         return {
           id: "1",
           email: credentials.email,
