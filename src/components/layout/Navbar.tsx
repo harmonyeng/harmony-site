@@ -1,11 +1,15 @@
 'use client'
-
 import { CommandButton } from '@/components/ui/CommandButton'
 import { LoginModal } from '@/components/ui/LoginModal'
 import { useState } from 'react'
+import { useSession, signOut } from 'next-auth/react'
 
 export function Navbar() {
   const [modalOpen, setModalOpen] = useState(false)
+  const { data: session } = useSession()
+
+  const isAdmin = (session?.user as any)?.role === 'admin'
+  const firstName = session?.user?.name?.split(' ')[0] ?? ''
 
   return (
     <>
@@ -18,13 +22,27 @@ export function Navbar() {
           borderRadius: '0 0 10px 10px',
         }}
       >
-        {/* Left: Login link */}
-        <button
-          className="font-mono text-[10px] tracking-[0.2em] text-white/50 uppercase hover:text-gold transition-colors cursor-pointer"
-          onClick={() => setModalOpen(true)}
-        >
-          Login <span className="text-white/20 mx-2">|</span> Sign up
-        </button>
+        {/* Left: Login or greeting */}
+        {session ? (
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-[10px] tracking-[0.2em] text-gold uppercase">
+              {isAdmin ? `⚙ המפקדה פתוחה, ליטל` : `ברוכה הבאה ✦`}
+            </span>
+            <button
+              className="font-mono text-[9px] tracking-[0.15em] text-white/30 uppercase hover:text-white/70 transition-colors cursor-pointer"
+              onClick={() => signOut({ redirect: false })}
+            >
+              יציאה
+            </button>
+          </div>
+        ) : (
+          <button
+            className="font-mono text-[10px] tracking-[0.2em] text-white/50 uppercase hover:text-gold transition-colors cursor-pointer"
+            onClick={() => setModalOpen(true)}
+          >
+            Login <span className="text-white/20 mx-2">|</span> Sign up
+          </button>
+        )}
 
         {/* Center: Brand */}
         <div className="absolute left-1/2 -translate-x-1/2 font-sans text-[13px] tracking-[0.18em] text-gold uppercase"
@@ -35,7 +53,6 @@ export function Navbar() {
         {/* Right: 3D Command Button */}
         <CommandButton onClick={() => setModalOpen(true)} />
       </nav>
-
       <LoginModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   )
