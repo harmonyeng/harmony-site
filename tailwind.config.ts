@@ -8,7 +8,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // ── Steel Silk Color System ──────────────────────────────────────────
       colors: {
         pearl:   '#F5F5F1',
         cobalt: {
@@ -20,28 +19,21 @@ const config: Config = {
         gold:    '#C8A96E',
         ink:     '#0A0A0A',
         muted:   '#6B6B65',
+        'glossy-black': '#1A1A1A',
       },
-
-      // ── Typography ───────────────────────────────────────────────────────
       fontFamily: {
         serif:  ['var(--font-cormorant)', 'Georgia', 'serif'],
         sans:   ['var(--font-tenor)', 'system-ui', 'sans-serif'],
         mono:   ['var(--font-space-mono)', 'monospace'],
       },
-
-      // ── Border radius ────────────────────────────────────────────────────
       borderRadius: {
         steel: '10px',
         stamp: '17px',
       },
-
-      // ── Spacing ──────────────────────────────────────────────────────────
       spacing: {
-        col:     '56px',   // column outer padding
-        section: '44px',   // gap between page sections
+        col:     '56px',
+        section: '44px',
       },
-
-      // ── Box shadows (neumorphic / luxury) ────────────────────────────────
       boxShadow: {
         'cmd-btn':
           '3px 3px 7px rgba(0,0,0,0.58), -1px -1px 3px rgba(255,255,255,0.10), inset 0 1.5px 2px rgba(255,255,255,0.20), inset 0 -2px 5px rgba(0,0,0,0.50)',
@@ -51,8 +43,6 @@ const config: Config = {
         modal:   '0 28px 64px rgba(0,0,0,0.22)',
         stamp:   '1px 3px 6px rgba(26,79,173,0.18), 0 1px 2px rgba(0,0,0,0.10)',
       },
-
-      // ── Background gradients ─────────────────────────────────────────────
       backgroundImage: {
         'pearl-silk':
           'radial-gradient(ellipse at 18% 12%, #F9F9F5 0%, transparent 58%), radial-gradient(ellipse at 82% 88%, #ECEBE3 0%, transparent 52%), radial-gradient(ellipse at 55% 42%, #F1F0E8 0%, transparent 45%), linear-gradient(155deg, #F8F8F4 0%, #F1F0E8 45%, #EDECEA 100%)',
@@ -63,8 +53,6 @@ const config: Config = {
         'modal-bg':
           'radial-gradient(ellipse at 30% 20%, #F9F9F5 0%, #EDECEA 100%)',
       },
-
-      // ── Keyframe animations ──────────────────────────────────────────────
       keyframes: {
         stampDrop: {
           from: { transform: 'scale(0.35) rotate(-14deg)', opacity: '0', filter: 'blur(5px)' },
@@ -84,12 +72,4 @@ const config: Config = {
       animation: {
         'stamp-drop': 'stampDrop 0.75s cubic-bezier(0.34,1.56,0.64,1) both',
         'fade-up':    'fadeUp 0.9s ease both',
-        'split-left':  'splitLeft 1.08s cubic-bezier(0.77,0,0.175,1) forwards',
-        'split-right': 'splitRight 1.08s cubic-bezier(0.77,0,0.175,1) forwards',
-      },
-    },
-  },
-  plugins: [],
-}
-
-export default config
+        'split-left':
