@@ -3,6 +3,7 @@ import { productSchema } from './product'
 import { questionSchema } from './question'
 import { siteSettingsSchema } from './siteSettings'
 import { authorSchema } from './author'
+import { featuredArticleSchema } from './featuredArticle'
 
 export const schemaTypes = [
   sopSchema,
@@ -10,4 +11,5 @@ export const schemaTypes = [
   questionSchema,
   siteSettingsSchema,
   authorSchema,
+  featuredArticleSchema,
 ]
