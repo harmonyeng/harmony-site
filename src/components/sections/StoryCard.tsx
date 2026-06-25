@@ -28,7 +28,7 @@ export function StoryCard({ settings }: StoryCardProps) {
         <span className="font-mono text-[8.5px] tracking-[0.15em] text-rose-gold uppercase mb-3.5 block">
           Industrial Engineer · Founder, Harmony Engineering
         </span>
-        <p className="font-serif text-[14px] leading-[1.8] text-ink/70 font-light italic mb-4">
+        <p className="font-serif text-[14px] leading-[1.8] text-ink/90 mb-4">
           {settings?.storyBody ??
             'Industrial engineering applied to the household. Harmony Engineering was built on the belief that the operational complexity of running a home deserves the same rigorous systems thinking as any factory floor — without losing the warmth that makes it a home.'}
         </p>
@@ -60,7 +60,7 @@ export function AmazonBoutique({ product }: AmazonBoutiqueProps) {
       </Link>
 
       {product ? (
-        
+        <a
           href={product.amazonUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -86,7 +86,7 @@ export function AmazonBoutique({ product }: AmazonBoutiqueProps) {
             <div className="font-serif text-[13.5px] font-normal text-ink leading-[1.4] mb-1.5">
               {product.name}
             </div>
-            <div className="font-serif text-[12px] italic text-ink/60 leading-[1.55] mb-1.5 line-clamp-2">
+            <div className="font-serif text-[12px] italic text-ink/70 leading-[1.55] mb-1.5 line-clamp-2">
               {product.snippet}
             </div>
             <div className="font-mono text-[8px] tracking-[0.15em] text-gold uppercase">
@@ -95,7 +95,7 @@ export function AmazonBoutique({ product }: AmazonBoutiqueProps) {
           </div>
         </a>
       ) : (
-        <p className="font-serif text-[13px] italic text-ink/50">
+        <p className="font-serif text-[13px] text-ink/80">
           First product coming soon.
         </p>
       )}
