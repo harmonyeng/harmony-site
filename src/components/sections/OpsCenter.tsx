@@ -1,23 +1,18 @@
 'use client'
-
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
-
 export function OpsCenter() {
   const { data: session } = useSession()
   const [question, setQuestion] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
-
   async function handleSubmit() {
     if (!session) {
-      // Trigger login modal via custom event
       window.dispatchEvent(new CustomEvent('open-login-modal'))
       return
     }
     if (!question.trim()) return
-
     setLoading(true)
     try {
       await fetch('/api/questions', {
@@ -33,7 +28,6 @@ export function OpsCenter() {
       setLoading(false)
     }
   }
-
   return (
     <section className="border border-cobalt/13 rounded-steel overflow-hidden">
       {/* Header bar */}
@@ -46,12 +40,11 @@ export function OpsCenter() {
         </span>
         <Link
           href="/think-tank"
-          className="mr-3.5 font-mono text-[8px] tracking-[0.13em] text-gold uppercase border border-gold/40 px-3 py-[5px] rounded-steel hover:bg-gold/10 transition-colors whitespace-nowrap"
+          className="mr-3.5 font-mono text-[8px] tracking-[0.13em] text-gold uppercase border border-gold/60 px-3 py-[5px] rounded-steel hover:bg-gold/10 transition-colors whitespace-nowrap"
         >
           Think-Tank Archive ↗
         </Link>
       </div>
-
       {/* Body */}
       <div className="p-7">
         {submitted ? (
@@ -76,7 +69,7 @@ export function OpsCenter() {
                 {loading ? 'Submitting…' : 'Submit Question'}
               </button>
             </div>
-            <p className="font-mono text-[8.5px] tracking-[0.1em] text-muted opacity-50 text-center mt-3">
+            <p className="font-mono text-[8.5px] tracking-[0.1em] text-ink/70 text-center mt-3">
               {session ? `Logged in as ${session.user?.email}` : 'Login required to submit · '} Chief Engineer replies marked ★
             </p>
           </>
