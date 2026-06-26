@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tenor+Sans&family=Space+Mono:wght@400;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,13 +17,11 @@
     padding: 0;
     box-sizing: border-box;
   }
-
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
   body {
     font-family: var(--font-cormorant);
     background-image:
@@ -53,7 +50,6 @@
     margin-bottom: 0.75rem;
     color: #0A0A0A;
   }
-
   .portable-text p {
     font-family: var(--font-cormorant);
     font-size: 1rem;
@@ -63,44 +59,8 @@
     font-style: italic;
     margin-bottom: 1.25rem;
   }
-
   .portable-text strong {
     font-weight: 600;
     color: #0A0A0A;
     font-style: normal;
   }
-
-  .portable-text ul {
-    list-style: none;
-    padding-left: 1.25rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .portable-text ul li::before {
-    content: '— ';
-    color: #1A4FAD;
-    font-family: var(--font-space-mono);
-    font-size: 0.75rem;
-  }
-
-  /* Splash screen panels */
-  .splash-panel-left,
-  .splash-panel-right {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    z-index: 101;
-    pointer-events: none;
-    background-image:
-      radial-gradient(ellipse at 18% 12%, #F9F9F5 0%, transparent 58%),
-      radial-gradient(ellipse at 82% 88%, #ECEBE3 0%, transparent 52%),
-      linear-gradient(155deg, #F8F8F4 0%, #F1F0E8 45%, #EDECEA 100%);
-  }
-
-  .splash-panel-left  { left: 0; transition: transform 1.08s cubic-bezier(0.77, 0, 0.175, 1); }
-  .splash-panel-right { right: 0; transition: transform 1.08s cubic-bezier(0.77, 0, 0.175, 1); }
-
-  .splash-panel-left.open  { transform: translateX(-100%); }
-  .splash-panel-right.open { transform: translateX(100%); }
-}
