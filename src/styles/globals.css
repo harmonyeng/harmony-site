@@ -70,7 +70,7 @@
     margin-bottom: 1.25rem;
   }
   .portable-text ul li::before {
-    content: '— ';
+    content: '\2014 ';
     color: #1A4FAD;
     font-family: var(--font-space-mono);
     font-size: 0.75rem;
