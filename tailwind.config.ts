@@ -72,4 +72,12 @@ const config: Config = {
       animation: {
         'stamp-drop': 'stampDrop 0.75s cubic-bezier(0.34,1.56,0.64,1) both',
         'fade-up':    'fadeUp 0.9s ease both',
-        'split-left':
+        'split-left':  'splitLeft 1.08s cubic-bezier(0.77,0,0.175,1) forwards',
+        'split-right': 'splitRight 1.08s cubic-bezier(0.77,0,0.175,1) forwards',
+      },
+    },
+  },
+  plugins: [],
+}
+
+export default config
