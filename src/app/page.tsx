@@ -76,7 +76,7 @@ export default async function HomePage() {
                 Questions are published anonymously · Chief Engineer replies marked *
               </p>
               
-                href="mailto:harmonyengineeringtn@gmail.com?subject=Question from theharmonyeng.com"
+                Questions are published anonymously - Chief Engineer replies marked *
                 className="font-mono text-[9px] tracking-[0.13em] text-white uppercase bg-cobalt px-4 py-2 rounded-steel hover:bg-cobalt-dark transition-colors inline-block"
               >
                 Submit Question →
