@@ -24,11 +24,11 @@ export function FeaturedArticles({ articles, stacked }: Props) {
             <h3 className="text-[13px] font-semibold text-ink leading-snug">
               {article.title}
             </h3>
-            <p className="text-[11px] text-ink/70 leading-relaxed">
+            <p className="text-[11px] text-ink leading-relaxed">
               {article.description}
             </p>
             <button className="mt-[4px] text-[11px] font-medium text-cobalt hover:text-cobalt/70 transition-colors text-left">
-              Read more →
+              Read more
             </button>
           </div>
         ))}
@@ -47,11 +47,11 @@ export function FeaturedArticles({ articles, stacked }: Props) {
             <h3 className="text-[15px] font-semibold text-ink leading-snug">
               {article.title}
             </h3>
-            <p className="text-[13px] text-ink/70 leading-relaxed flex-1">
+            <p className="text-[13px] text-ink leading-relaxed flex-1">
               {article.description}
             </p>
             <button className="mt-[8px] text-[12px] font-medium text-cobalt hover:text-cobalt/70 transition-colors text-left">
-              Read more →
+              Read more
             </button>
           </div>
         ))}
