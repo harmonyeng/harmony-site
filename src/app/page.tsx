@@ -43,29 +43,22 @@ export default async function HomePage() {
         <Navbar />
         <main className="max-w-[1120px] mx-auto min-h-[calc(100vh-52px)]">
 
-          {/* Top - two columns */}
           <div className="grid grid-cols-[65%_35%] border-b border-cobalt/10">
-            {/* Left - latest article */}
             <div className="px-[36px] py-[52px] border-r border-cobalt/10">
               <SopSection sop={latestSop} />
             </div>
-            {/* Right - three featured article cards stacked */}
             <div className="py-[52px] px-[28px] flex flex-col gap-[16px]">
               <FeaturedArticles articles={featuredArticles} stacked />
             </div>
           </div>
 
-          {/* Bottom - three columns: Amazon | Story | Ask a Question */}
           <div className="grid grid-cols-3 border-t border-cobalt/10">
-            {/* Amazon */}
             <div className="px-[32px] py-[44px] border-r border-cobalt/10">
               <AmazonBoutique product={latestProduct} />
             </div>
-            {/* Story */}
             <div className="px-[32px] py-[44px] border-r border-cobalt/10">
               <StoryCard settings={settings} />
             </div>
-            {/* Ask a Question */}
             <div className="px-[32px] py-[44px]">
               <p className="font-mono text-[9px] tracking-[0.15em] text-cobalt uppercase mb-4">Ask a Question</p>
               <textarea
@@ -75,7 +68,7 @@ export default async function HomePage() {
               <p className="font-mono text-[8px] tracking-[0.1em] text-muted/60 mt-2 mb-3">
                 Questions are published anonymously - Chief Engineer replies marked *
               </p>
-              
+              <a
                 href="mailto:harmonyengineeringtn@gmail.com?subject=Question from theharmonyeng.com"
                 className="font-mono text-[9px] tracking-[0.13em] text-white uppercase bg-cobalt px-4 py-2 rounded-steel hover:bg-cobalt-dark transition-colors inline-block"
               >
