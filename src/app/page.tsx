@@ -62,10 +62,10 @@ export default async function HomePage() {
             <div className="px-[32px] py-[44px]">
               <p className="font-mono text-[9px] tracking-[0.15em] text-cobalt uppercase mb-4">Ask a Question</p>
               <textarea
-                className="w-full h-[120px] bg-transparent border border-cobalt/20 rounded-steel p-3 font-serif text-[13px] text-ink placeholder:text-muted/50 resize-none focus:outline-none focus:border-cobalt/50 transition-colors"
+                className="w-full h-[120px] bg-transparent border border-cobalt/20 rounded-steel p-3 font-serif text-[14px] text-ink placeholder:text-ink/40 resize-none focus:outline-none focus:border-cobalt/50 transition-colors"
                 placeholder="Ask me anything about home management, systems, or operations..."
               />
-              <p className="font-mono text-[8px] tracking-[0.1em] text-muted/60 mt-2 mb-3">
+              <p className="font-mono text-[8px] tracking-[0.1em] text-ink/50 mt-2 mb-3">
                 Questions are published anonymously - Chief Engineer replies marked *
               </p>
               <a
