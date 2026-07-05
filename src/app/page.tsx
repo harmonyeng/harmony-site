@@ -29,9 +29,9 @@ export default async function HomePage() {
         <h1>{settings?.siteTitle ?? 'Harmony Engineering'}</h1>
         <h2>Standard Operating Procedures for Home Management</h2>
         {latestSop && <p>{latestSop.excerpt}</p>}
-        <h2>Amazon Boutique — Household Systems Products</h2>
+        <h2>Amazon Boutique - Household Systems Products</h2>
         {latestProduct && <p>{latestProduct.snippet}</p>}
-        <h2>Chief of Home — Lital Shlomo, Industrial Engineer</h2>
+        <h2>Chief of Home - Lital Shlomo, Industrial Engineer</h2>
         {settings?.storyBody && <p>{settings.storyBody}</p>}
       </div>
 
@@ -43,19 +43,19 @@ export default async function HomePage() {
         <Navbar />
         <main className="max-w-[1120px] mx-auto min-h-[calc(100vh-52px)]">
 
-          {/* Top — two columns: latest SOP left, featured articles right */}
+          {/* Top - two columns */}
           <div className="grid grid-cols-[65%_35%] border-b border-cobalt/10">
-            {/* Left — latest article */}
+            {/* Left - latest article */}
             <div className="px-[36px] py-[52px] border-r border-cobalt/10">
               <SopSection sop={latestSop} />
             </div>
-            {/* Right — three featured article cards stacked */}
+            {/* Right - three featured article cards stacked */}
             <div className="py-[52px] px-[28px] flex flex-col gap-[16px]">
               <FeaturedArticles articles={featuredArticles} stacked />
             </div>
           </div>
 
-          {/* Bottom — three columns: Amazon | Story | Ask a Question */}
+          {/* Bottom - three columns: Amazon | Story | Ask a Question */}
           <div className="grid grid-cols-3 border-t border-cobalt/10">
             {/* Amazon */}
             <div className="px-[32px] py-[44px] border-r border-cobalt/10">
@@ -73,13 +73,13 @@ export default async function HomePage() {
                 placeholder="Ask me anything about home management, systems, or operations..."
               />
               <p className="font-mono text-[8px] tracking-[0.1em] text-muted/60 mt-2 mb-3">
-                Questions are published anonymously · Chief Engineer replies marked *
+                Questions are published anonymously - Chief Engineer replies marked *
               </p>
               
-                Questions are published anonymously - Chief Engineer replies marked *
+                href="mailto:harmonyengineeringtn@gmail.com?subject=Question from theharmonyeng.com"
                 className="font-mono text-[9px] tracking-[0.13em] text-white uppercase bg-cobalt px-4 py-2 rounded-steel hover:bg-cobalt-dark transition-colors inline-block"
               >
-                Submit Question →
+                Submit Question
               </a>
             </div>
           </div>
