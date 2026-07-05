@@ -49,13 +49,13 @@
     margin-bottom: 0.75rem;
     color: #0A0A0A;
   }
-  .portable-text p {
+.portable-text p {
     font-family: var(--font-cormorant);
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.9;
-    color: #6B6B65;
-    font-weight: 300;
-    font-style: italic;
+    color: #2A2A2A;
+    font-weight: 400;
+    font-style: normal;
     margin-bottom: 1.25rem;
   }
   .portable-text strong {
