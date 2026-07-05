@@ -8,11 +8,9 @@ import {
 import { SplashGate } from '@/components/sections/SplashGate'
 import { Navbar } from '@/components/layout/Navbar'
 import { SopSection } from '@/components/sections/SopSection'
-import { OpsCenter } from '@/components/sections/OpsCenter'
 import { StoryCard } from '@/components/sections/StoryCard'
 import { AmazonBoutique } from '@/components/sections/AmazonBoutique'
 import { FeaturedArticles } from '@/components/sections/FeaturedArticles'
-import { BrandStamp } from '@/components/ui/BrandStamp'
 import type { Sop, Product, SiteSettings } from '@/lib/types'
 
 export const revalidate = 60
@@ -45,28 +43,45 @@ export default async function HomePage() {
         <Navbar />
         <main className="max-w-[1120px] mx-auto min-h-[calc(100vh-52px)]">
 
-          {/* Top — two columns */}
-          <div className="grid grid-cols-[65%_35%]">
-            {/* Left Column */}
-            <div className="px-col py-col border-r border-cobalt/10" style={{ paddingLeft: '36px', paddingRight: '48px', paddingTop: '52px', paddingBottom: '52px' }}>
+          {/* Top — two columns: latest SOP left, featured articles right */}
+          <div className="grid grid-cols-[65%_35%] border-b border-cobalt/10">
+            {/* Left — latest article */}
+            <div className="px-[36px] py-[52px] border-r border-cobalt/10">
               <SopSection sop={latestSop} />
             </div>
-            {/* Right Column */}
-            <div className="relative flex flex-col gap-[36px]" style={{ padding: '52px 32px 52px 28px' }}>
-              <StoryCard settings={settings} />
-              <AmazonBoutique product={latestProduct} />
-              <div className="absolute bottom-7 right-5">
-                <BrandStamp size={108} rotation={6} />
-              </div>
+            {/* Right — three featured article cards stacked */}
+            <div className="py-[52px] px-[28px] flex flex-col gap-[16px]">
+              <FeaturedArticles articles={featuredArticles} stacked />
             </div>
           </div>
 
-          {/* Featured Articles — full width */}
-          <FeaturedArticles articles={featuredArticles} />
-
-          {/* Ops Center — bottom left, subdued */}
-          <div className="max-w-[65%] px-[36px] py-[36px] opacity-80">
-            <OpsCenter />
+          {/* Bottom — three columns: Amazon | Story | Ask a Question */}
+          <div className="grid grid-cols-3 border-t border-cobalt/10">
+            {/* Amazon */}
+            <div className="px-[32px] py-[44px] border-r border-cobalt/10">
+              <AmazonBoutique product={latestProduct} />
+            </div>
+            {/* Story */}
+            <div className="px-[32px] py-[44px] border-r border-cobalt/10">
+              <StoryCard settings={settings} />
+            </div>
+            {/* Ask a Question */}
+            <div className="px-[32px] py-[44px]">
+              <p className="font-mono text-[9px] tracking-[0.15em] text-cobalt uppercase mb-4">Ask a Question</p>
+              <textarea
+                className="w-full h-[120px] bg-transparent border border-cobalt/20 rounded-steel p-3 font-serif text-[13px] text-ink placeholder:text-muted/50 resize-none focus:outline-none focus:border-cobalt/50 transition-colors"
+                placeholder="Ask me anything about home management, systems, or operations..."
+              />
+              <p className="font-mono text-[8px] tracking-[0.1em] text-muted/60 mt-2 mb-3">
+                Questions are published anonymously · Chief Engineer replies marked ★
+              </p>
+              
+                href="mailto:harmonyengineeringtn@gmail.com?subject=Question from theharmonyeng.com"
+                className="font-mono text-[9px] tracking-[0.13em] text-white uppercase bg-cobalt px-4 py-2 rounded-steel hover:bg-cobalt-dark transition-colors inline-block"
+              >
+                Submit Question →
+              </a>
+            </div>
           </div>
 
         </main>
