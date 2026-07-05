@@ -73,7 +73,7 @@ export default async function HomePage() {
                 placeholder="Ask me anything about home management, systems, or operations..."
               />
               <p className="font-mono text-[8px] tracking-[0.1em] text-muted/60 mt-2 mb-3">
-                Questions are published anonymously · Chief Engineer replies marked ★
+                Questions are published anonymously · Chief Engineer replies marked *
               </p>
               
                 href="mailto:harmonyengineeringtn@gmail.com?subject=Question from theharmonyeng.com"
