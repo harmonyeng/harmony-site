@@ -1,3 +1,4 @@
+"use client"
 import { sanityClient } from '../../sanity/lib/client'
 import {
   latestSopQuery,
@@ -12,6 +13,7 @@ import { StoryCard } from '@/components/sections/StoryCard'
 import { AmazonBoutique } from '@/components/sections/AmazonBoutique'
 import { FeaturedArticles } from '@/components/sections/FeaturedArticles'
 import type { Sop, Product, SiteSettings } from '@/lib/types'
+import { useState } from "react"
 
 export const revalidate = 60
 
@@ -29,10 +31,6 @@ export default async function HomePage() {
         <h1>{settings?.siteTitle ?? 'Harmony Engineering'}</h1>
         <h2>Standard Operating Procedures for Home Management</h2>
         {latestSop && <p>{latestSop.excerpt}</p>}
-        <h2>Amazon Boutique - Household Systems Products</h2>
-        {latestProduct && <p>{latestProduct.snippet}</p>}
-        <h2>Chief of Home - Lital Shlomo, Industrial Engineer</h2>
-        {settings?.storyBody && <p>{settings.storyBody}</p>}
       </div>
 
       <SplashGate
@@ -60,25 +58,70 @@ export default async function HomePage() {
               <StoryCard settings={settings} />
             </div>
             <div className="px-[32px] py-[44px]">
-              <p className="font-mono text-[9px] tracking-[0.15em] text-cobalt uppercase mb-4">Ask a Question</p>
-              <textarea
-                className="w-full h-[120px] bg-transparent border border-cobalt/20 rounded-steel p-3 font-serif text-[14px] text-ink placeholder:text-ink/40 resize-none focus:outline-none focus:border-cobalt/50 transition-colors"
-                placeholder="Ask me anything about home management, systems, or operations..."
-              />
-              <p className="font-mono text-[8px] tracking-[0.1em] text-ink/50 mt-2 mb-3">
-                Questions are published anonymously - Chief Engineer replies marked *
-              </p>
-              <a
-                href="mailto:harmonyengineeringtn@gmail.com?subject=Question from theharmonyeng.com"
-                className="font-mono text-[9px] tracking-[0.13em] text-white uppercase bg-cobalt px-4 py-2 rounded-steel hover:bg-cobalt-dark transition-colors inline-block"
-              >
-                Submit Question
-              </a>
+              <QuestionForm />
             </div>
           </div>
 
         </main>
       </div>
     </>
+  )
+}
+
+function QuestionForm() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
+  const [question, setQuestion] = useState('')
+
+  async function handleSubmit() {
+    if (!question.trim()) return
+    setStatus('sending')
+    try {
+      const res = await fetch('https://formspree.io/f/xqevnjgl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question }),
+      })
+      if (res.ok) {
+        setStatus('done')
+        setQuestion('')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  return (
+    <div>
+      <p className="font-mono text-[9px] tracking-[0.15em] text-cobalt uppercase mb-4">Ask a Question</p>
+      {status === 'done' ? (
+        <p className="font-serif text-[14px] text-ink/80 leading-relaxed">
+          Thank you - your question has been received. The Chief Engineer will review it shortly.
+        </p>
+      ) : (
+        <>
+          <textarea
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            className="w-full h-[120px] bg-transparent border border-cobalt/20 rounded-steel p-3 font-serif text-[14px] text-ink placeholder:text-ink/40 resize-none focus:outline-none focus:border-cobalt/50 transition-colors"
+            placeholder="Ask me anything about home management, systems, or operations..."
+          />
+          <p className="font-mono text-[8px] tracking-[0.1em] text-ink/50 mt-2 mb-3">
+            Questions are published anonymously - Chief Engineer replies marked *
+          </p>
+          <button
+            onClick={handleSubmit}
+            disabled={status === 'sending'}
+            className="font-mono text-[9px] tracking-[0.13em] text-white uppercase bg-cobalt px-4 py-2 rounded-steel hover:bg-cobalt-dark transition-colors inline-block disabled:opacity-50"
+          >
+            {status === 'sending' ? 'Sending...' : 'Submit Question'}
+          </button>
+          {status === 'error' && (
+            <p className="font-mono text-[8px] text-red-500 mt-2">Something went wrong. Please try again.</p>
+          )}
+        </>
+      )}
+    </div>
   )
 }
