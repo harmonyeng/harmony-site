@@ -4,6 +4,7 @@ import { useState } from 'react'
 export function QuestionForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
   const [question, setQuestion] = useState('')
+  const [email, setEmail] = useState('')
 
   async function handleSubmit() {
     if (!question.trim()) return
@@ -12,11 +13,12 @@ export function QuestionForm() {
       const res = await fetch('https://formspree.io/f/xqevnjgl', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ question, email }),
       })
       if (res.ok) {
         setStatus('done')
         setQuestion('')
+        setEmail('')
       } else {
         setStatus('error')
       }
@@ -37,10 +39,17 @@ export function QuestionForm() {
           <textarea
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
-            className="w-full h-[120px] bg-transparent border border-cobalt/20 rounded-steel p-3 font-serif text-[14px] text-ink placeholder:text-ink/40 resize-none focus:outline-none focus:border-cobalt/50 transition-colors"
+            className="w-full h-[100px] bg-transparent border border-cobalt/20 rounded-steel p-3 font-serif text-[14px] text-ink placeholder:text-ink/40 resize-none focus:outline-none focus:border-cobalt/50 transition-colors mb-2"
             placeholder="Ask me anything about home management, systems, or operations..."
           />
-          <p className="font-mono text-[8px] tracking-[0.1em] text-ink/50 mt-2 mb-3">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full bg-transparent border border-cobalt/20 rounded-steel p-3 font-serif text-[14px] text-ink placeholder:text-ink/40 focus:outline-none focus:border-cobalt/50 transition-colors mb-2"
+            placeholder="Your email (optional - if you want a reply)"
+          />
+          <p className="font-mono text-[8px] tracking-[0.1em] text-ink/50 mt-1 mb-3">
             Questions are published anonymously - Chief Engineer replies marked *
           </p>
           <button
