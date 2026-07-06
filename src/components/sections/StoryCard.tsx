@@ -19,7 +19,7 @@ export function StoryCard({ settings }: StoryCardProps) {
           Lital Shlomo
         </div>
         <span className="font-mono text-[8.5px] tracking-[0.15em] text-rose-gold uppercase mb-3.5 block">
-          Industrial Engineer - Founder, Harmony Engineering
+          Practical Industrial Engineer - Founder, Harmony Engineering
         </span>
         <p className="font-serif text-[14px] leading-[1.8] text-ink/90 mb-4">
           {settings?.storyBody ??
