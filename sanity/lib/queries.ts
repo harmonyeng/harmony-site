@@ -97,6 +97,8 @@ export const featuredArticlesQuery = groq`
     _id,
     title,
     description,
-    order
+    order,
+    "slug": linkedSop->slug.current
   }
+`
 `
