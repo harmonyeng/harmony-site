@@ -28,7 +28,6 @@ export default async function HomePage() {
     <>
       <div className="sr-only" aria-hidden="true">
         <h1>{settings?.siteTitle ?? 'Harmony Engineering'}</h1>
-        <h2>Standard Operating Procedures for Home Management</h2>
         {latestSop && <p>{latestSop.excerpt}</p>}
       </div>
 
@@ -40,24 +39,26 @@ export default async function HomePage() {
         <Navbar />
         <main className="max-w-[1120px] mx-auto min-h-[calc(100vh-52px)]">
 
-          <div className="grid grid-cols-[65%_35%] border-b border-cobalt/10">
-            <div className="px-[36px] py-[52px] border-r border-cobalt/10">
+          {/* Top section - latest article + featured articles */}
+          <div className="flex flex-col md:grid md:grid-cols-[65%_35%] border-b border-cobalt/10">
+            <div className="px-6 py-10 md:px-[36px] md:py-[52px] md:border-r border-cobalt/10">
               <SopSection sop={latestSop} />
             </div>
-            <div className="py-[52px] px-[28px] flex flex-col gap-[16px]">
+            <div className="px-6 py-8 md:py-[52px] md:px-[28px] flex flex-col gap-[16px] border-t md:border-t-0 border-cobalt/10">
               <FeaturedArticles articles={featuredArticles} stacked />
             </div>
           </div>
 
-          <div className="grid grid-cols-3 border-t border-cobalt/10">
-            <div className="px-[32px] py-[44px] border-r border-cobalt/10">
+          {/* Bottom section - Amazon | Ask | Story */}
+          <div className="flex flex-col md:grid md:grid-cols-3 border-t border-cobalt/10">
+            <div className="px-6 py-8 md:px-[32px] md:py-[44px] border-b md:border-b-0 md:border-r border-cobalt/10">
               <AmazonBoutique product={latestProduct} />
             </div>
-            <div className="px-[32px] py-[44px] border-r border-cobalt/10">
-              <StoryCard settings={settings} />
-            </div>
-            <div className="px-[32px] py-[44px]">
+            <div className="px-6 py-8 md:px-[32px] md:py-[44px] border-b md:border-b-0 md:border-r border-cobalt/10">
               <QuestionForm />
+            </div>
+            <div className="px-6 py-8 md:px-[32px] md:py-[44px]">
+              <StoryCard settings={settings} />
             </div>
           </div>
 
