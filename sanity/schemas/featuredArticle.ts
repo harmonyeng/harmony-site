@@ -17,10 +17,11 @@ export const featuredArticleSchema = {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'body',
-      title: 'Full Article Body',
-      type: 'array',
-      of: [{ type: 'block' }],
+      name: 'linkedSop',
+      title: 'Linked Article',
+      description: 'Link to the full SOP article',
+      type: 'reference',
+      to: [{ type: 'sop' }],
     },
     {
       name: 'order',
