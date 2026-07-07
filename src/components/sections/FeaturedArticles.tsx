@@ -20,10 +20,7 @@ export function FeaturedArticles({ articles, stacked }: Props) {
     return (
       <div className="flex flex-col gap-[12px]">
         {articles.map((article) => (
-          <div
-            key={article._id}
-            className="flex flex-col gap-[6px] p-[16px] rounded-[10px] border border-cobalt/15 bg-white/60 hover:border-cobalt/40 transition-colors"
-          >
+          <div key={article._id} className="flex flex-col gap-[6px] p-[16px] rounded-[10px] border border-cobalt/15 bg-white/60 hover:border-cobalt/40 transition-colors">
             <h3 className="text-[13px] font-semibold text-ink leading-snug">
               {article.title}
             </h3>
@@ -31,16 +28,11 @@ export function FeaturedArticles({ articles, stacked }: Props) {
               {article.description}
             </p>
             {article.slug ? (
-              <Link
-                href={}
-                className="mt-[4px] text-[11px] font-medium text-cobalt hover:text-cobalt/70 transition-colors"
-              >
+              <Link href={"/sops/" + article.slug} className="mt-[4px] text-[11px] font-medium text-cobalt hover:text-cobalt/70 transition-colors">
                 Read more
               </Link>
             ) : (
-              <span className="mt-[4px] text-[11px] font-medium text-cobalt/40">
-                Coming soon
-              </span>
+              <span className="mt-[4px] text-[11px] font-medium text-cobalt/40">Coming soon</span>
             )}
           </div>
         ))}
@@ -52,10 +44,7 @@ export function FeaturedArticles({ articles, stacked }: Props) {
     <section className="py-[48px] px-[36px] border-t border-cobalt/10">
       <div className="grid grid-cols-3 gap-[24px]">
         {articles.map((article) => (
-          <div
-            key={article._id}
-            className="flex flex-col gap-[12px] p-[24px] rounded-[12px] border border-cobalt/15 bg-white/60 hover:border-cobalt/40 transition-colors"
-          >
+          <div key={article._id} className="flex flex-col gap-[12px] p-[24px] rounded-[12px] border border-cobalt/15 bg-white/60 hover:border-cobalt/40 transition-colors">
             <h3 className="text-[15px] font-semibold text-ink leading-snug">
               {article.title}
             </h3>
@@ -63,16 +52,11 @@ export function FeaturedArticles({ articles, stacked }: Props) {
               {article.description}
             </p>
             {article.slug ? (
-              <Link
-                href={}
-                className="mt-[8px] text-[12px] font-medium text-cobalt hover:text-cobalt/70 transition-colors"
-              >
+              <Link href={"/sops/" + article.slug} className="mt-[8px] text-[12px] font-medium text-cobalt hover:text-cobalt/70 transition-colors">
                 Read more
               </Link>
             ) : (
-              <span className="mt-[8px] text-[12px] font-medium text-cobalt/40">
-                Coming soon
-              </span>
+              <span className="mt-[8px] text-[12px] font-medium text-cobalt/40">Coming soon</span>
             )}
           </div>
         ))}
