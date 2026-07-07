@@ -1,8 +1,11 @@
+import Link from 'next/link'
+
 type FeaturedArticle = {
   _id: string
   title: string
   description: string
   order: number
+  slug?: string
 }
 
 type Props = {
@@ -27,9 +30,18 @@ export function FeaturedArticles({ articles, stacked }: Props) {
             <p className="text-[11px] text-ink leading-relaxed">
               {article.description}
             </p>
-            <button className="mt-[4px] text-[11px] font-medium text-cobalt hover:text-cobalt/70 transition-colors text-left">
-              Read more
-            </button>
+            {article.slug ? (
+              <Link
+                href={}
+                className="mt-[4px] text-[11px] font-medium text-cobalt hover:text-cobalt/70 transition-colors"
+              >
+                Read more
+              </Link>
+            ) : (
+              <span className="mt-[4px] text-[11px] font-medium text-cobalt/40">
+                Coming soon
+              </span>
+            )}
           </div>
         ))}
       </div>
@@ -50,9 +62,18 @@ export function FeaturedArticles({ articles, stacked }: Props) {
             <p className="text-[13px] text-ink leading-relaxed flex-1">
               {article.description}
             </p>
-            <button className="mt-[8px] text-[12px] font-medium text-cobalt hover:text-cobalt/70 transition-colors text-left">
-              Read more
-            </button>
+            {article.slug ? (
+              <Link
+                href={}
+                className="mt-[8px] text-[12px] font-medium text-cobalt hover:text-cobalt/70 transition-colors"
+              >
+                Read more
+              </Link>
+            ) : (
+              <span className="mt-[8px] text-[12px] font-medium text-cobalt/40">
+                Coming soon
+              </span>
+            )}
           </div>
         ))}
       </div>
