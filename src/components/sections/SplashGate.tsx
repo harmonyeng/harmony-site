@@ -30,7 +30,12 @@ export function SplashGate({ headline }: SplashGateProps) {
     reveal()
   }
 
-  // Mobile: tap-reveal
+  // Mobile: reveal on first touch, even if it turns into a swipe/scroll
+  function handleTouchStart() {
+    reveal()
+  }
+
+  // Fallback: tap-reveal (covers any click-based interaction)
   function handleClick() {
     reveal()
   }
@@ -48,6 +53,7 @@ export function SplashGate({ headline }: SplashGateProps) {
         transition: revealed ? 'opacity 0.35s ease 0.78s' : undefined,
       }}
       onMouseEnter={handleMouseEnter}
+      onTouchStart={handleTouchStart}
       onClick={handleClick}
       role="button"
       aria-label="Enter Harmony Engineering"
