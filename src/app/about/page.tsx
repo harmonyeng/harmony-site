@@ -21,42 +21,33 @@ export default function AboutPage() {
 
         {/* Intro */}
         <div className="font-serif text-[17px] leading-[1.9] text-ink/85 space-y-6 mb-12">
-          <p>
-            I&apos;m Lital. A Practical Industrial Engineer, a current B.Sc. Engineering student,
-            a mother of four, a partner, and the strategist behind Harmony Engineering.
-          </p>
-          <p>
-            For the past seven years, I&apos;ve lived and breathed production floors, logistics,
-            and medical equipment supply chains &mdash; an industry with zero margin for error,
-            where a single supply chain bottleneck can cost a human life. At work, I&apos;m the one
-            who manages high-pressure crises, streamlines complex operations, and solves the
-            impossible. I am the person colleagues and executives turn to when they need answers.
-          </p>
-          <p className="font-serif text-[18px] font-normal text-ink italic">
-            I&apos;ve always been in complete control.
-          </p>
-          <p>
-            Until the day I walked through my own front door.
-          </p>
-          <p>
-            The house was chaotic. The kids were glued to screens. My husband was dealing with
-            a severe back injury. And I? I stood in the middle of the living room, completely
-            drained, without a drop of energy to make dinner or clear the floor.
-          </p>
-          <p>
-            That was the moment the sharpest question of my life hit me:
-          </p>
           <p className="font-serif text-[18px] text-cobalt font-normal leading-[1.7] pl-6 border-l-2 border-cobalt/30">
-            How is it possible that I run multi-layered logistical systems at work with my
-            eyes closed &mdash; but the moment I cross my own threshold, I lose control?
+            You know that feeling &mdash; watching everyone else&apos;s life flow so easily, while you&apos;re
+            standing in the middle of your own mess, not sure which thread to pull first?
           </p>
           <p>
-            It wasn&apos;t that I was failing. It was that I was applying the wrong framework.
+            I&apos;m Lital &mdash; a Practical Industrial Engineer, currently finishing my B.Sc.,
+            and the founder of Harmony Engineering.
           </p>
           <p>
-            Home management isn&apos;t a survival task. Home management is running a business.
-            A complex, multi-variable operation with limited resources that demands constant
-            optimization. Once I shifted that framework, everything changed.
+            Here&apos;s the part nobody tells you: I was managing teams at work. I was doing well
+            in my studies. And I would still come home every single evening and get completely
+            lost in my own tasks. Different arena, same person &mdash; so why did one flow and
+            the other fall apart?
+          </p>
+          <p>
+            The answer changed everything for me: I stopped treating my home like &ldquo;just
+            life&rdquo; and started treating it like what it actually is &mdash; a system. The
+            same one I manage at work, the same one I studied in school. And once I looked at
+            it that way, the rules I already knew showed up everywhere: every problem is asking
+            for a solution. There is always a solution &mdash; even when it takes time to
+            actually put it in place.
+          </p>
+          <p>
+            For the past seven years, I&apos;ve worked inside industries where a single
+            bottleneck can shut down an entire operation &mdash; production floors, logistics,
+            medical equipment supply chains, where there&apos;s zero margin for error.
+            That&apos;s not theory for me. That&apos;s Tuesday.
           </p>
         </div>
 
@@ -64,7 +55,7 @@ export default function AboutPage() {
         <div className="flex items-center gap-4 mb-10">
           <div className="h-px flex-1 bg-cobalt/10" />
           <span className="font-mono text-[9px] tracking-[0.2em] text-cobalt uppercase">
-            From the Factory Floor to the Kitchen Floor
+            What I Actually Do
           </span>
           <div className="h-px flex-1 bg-cobalt/10" />
         </div>
@@ -72,13 +63,18 @@ export default function AboutPage() {
         {/* Body */}
         <div className="font-serif text-[17px] leading-[1.9] text-ink/85 space-y-6 mb-12">
           <p>
-            The methodologies that drive the world&apos;s most efficient corporations &mdash; Lean,
-            smart inventory management, workflow optimization, and resource synergy &mdash; are
-            exactly the tools that can turn any chaotic environment into a well-oiled machine.
-            I know this because I&apos;ve stress-tested every single one of them. At home.
-            With four kids. On three hours of sleep. While scaling a business.
+            Harmony Engineering takes the same principles that keep a business running &mdash;
+            process mapping, bottleneck analysis, workflow design &mdash; and applies them to
+            two places most people never think to engineer: their home, and the day-to-day
+            operations of their own small business.
           </p>
-          <p>Today, through Harmony Engineering, I execute on two parallel tracks:</p>
+          <p>
+            If you&apos;re a business owner who&apos;s sat through consultants who talk in
+            dashboards and frameworks and left you more confused than when you walked in &mdash;
+            this is the opposite of that. No jargon. No 40-slide deck. I look at where the
+            actual mess is, find the bottleneck, and build you a system that works &mdash; one
+            you can actually run without a manual.
+          </p>
 
           {/* Two tracks */}
           <div className="space-y-6 my-8">
@@ -99,18 +95,20 @@ export default function AboutPage() {
                 For Mothers &amp; Families
               </p>
               <p className="font-serif text-[16px] leading-[1.85] text-ink/85">
-                I am not offering you &ldquo;home organization tips.&rdquo; I am offering a systematic
-                mindset shift. This is a must-have framework for any mother who wants to stop
-                putting out fires and start running her home like the high-performing operation
-                it is &mdash; creating real space for breathing, growth, and peace of mind.
+                I am not offering you &ldquo;home organization tips.&rdquo; I am offering a
+                systematic mindset shift. This is a must-have framework for any mother who
+                wants to stop putting out fires and start running her home like the
+                high-performing operation it is &mdash; creating real space for breathing,
+                growth, and peace of mind.
               </p>
             </div>
           </div>
 
           <p>
-            Engineering isn&apos;t just formulas on a page. It&apos;s a way of life. Whether we are
-            talking about a medical supply warehouse or the chaos of a Tuesday morning with
-            four kids &mdash; the operational principles are exactly the same.
+            Because whether it&apos;s your household or your business: you don&apos;t need to
+            be perfect, and you don&apos;t need 100% in every category. You need a system that
+            gets you the result you actually need &mdash; not the one everyone else expects
+            from you.
           </p>
         </div>
 
